@@ -1,14 +1,13 @@
+
 import 'package:flutter/material.dart';
 import '../data/questions.dart';
 import '../widgets/question_item.dart';
 
 class QuestionsScreen extends StatelessWidget {
-  const QuestionsScreen({
-    super.key,
-    required this.onSelectAnswer,
-  });
+  const QuestionsScreen({super.key, required this.onSelectAnswer});
 
   final Function onSelectAnswer;
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +23,17 @@ class QuestionsScreen extends StatelessWidget {
 
             return QuestionItem(
               questionIndex: qIndex,
-              question: question,			  
+              question: question,
               onSelectAnswer: onSelectAnswer,
             );
           }),
 
           const SizedBox(height: 20),
+
+          ElevatedButton(
+            onPressed: () => onSelectAnswer(),
+            child: const Text('Submit Answers'),
+          ),
         ],
       ),
     );

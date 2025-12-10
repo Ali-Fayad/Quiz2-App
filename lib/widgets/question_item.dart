@@ -1,17 +1,27 @@
+
+import 'package:ali_fayad/data/questions.dart';
 import 'package:flutter/material.dart';
 import '../models/quiz_question.dart';
 
 class QuestionItem extends StatelessWidget {
   final int questionIndex;
-  final QuizQuestion question;  
+  final QuizQuestion question;
   final Function(int, String) onSelectAnswer;
+
+
 
   const QuestionItem({
     super.key,
     required this.questionIndex,
-    required this.question,	
+    required this.question,
     required this.onSelectAnswer,
   });
+
+  
+
+
+ 
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +30,30 @@ class QuestionItem extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Question Text Goes Here",
+            "${questionIndex + 1}. ${question.text}",
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-
           const SizedBox(height: 10),
+          ...question.answers.map((answer) {
+            return SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {
+                  onSelectAnswer(questionIndex, answer);
+                },
+                child: Text(answer),
+              ),
+            );
+          }).toList(),
         ],
       ),
     );
   }
 }
+
+class Final {
+}
+
+//need to add a fix width 200.
+// use the map function to populate the answer button from the question answers list, set the onpressed to on slecetanswer
