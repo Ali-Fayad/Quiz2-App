@@ -6,7 +6,7 @@ class QuizQuestion {
 
   get text => null;
 
-  Object get correctAnswer => null;
+  String? get correctAnswer => null;
 
   get answers => null;
 }
