@@ -54,6 +54,3 @@ class QuestionItem extends StatelessWidget {
 
 class Final {
 }
-
-//need to add a fix width 200.
-// use the map function to populate the answer button from the question answers list, set the onpressed to on slecetanswer
