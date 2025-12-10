@@ -35,6 +35,15 @@ class _QuizAppState extends State<QuizApp> {
     }
   }
 
+  void _selectAnswer(int questionIndex, String answer) {
+    selectedAnswers[questionIndex] = answer;
+
+    if (selectedAnswers.length == questions.length) {
+      numberOfCoreectAnswers();
+      _submit();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget? activeScreen;
